@@ -3,7 +3,7 @@ import scalikejdbc.*
 object MySQLSupport:
   def execute(): Unit =
     ConnectionPool.singleton(
-      "jdbc:mysql://localhost/example",
+      "jdbc:mysql://localhost/db",
       "root",
       "root"
     )
@@ -13,5 +13,10 @@ object MySQLSupport:
     }
 
   private def createExampleTable()(implicit session: DBSession) =
-    sql"create table example_table (id bigint, data varchar(10))".execute
+    sql"""
+      create table data (
+          id bigint auto_increment primary key,
+          data varchar(10)
+      )
+      """.execute
       .apply()
