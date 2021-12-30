@@ -7,15 +7,26 @@ import freespec.*
 
 import java.io.File
 
-class Test extends AnyFreeSpec:
+class Test extends AnyFreeSpec with BeforeAndAfterAll:
 
   val mysqlService: ExposedService = {
-    val mysqlHost = "e2e-mysql_1"
+    val mysqlHost = "mysql_1"
     val mysqlPort = 3306
     ExposedService(mysqlHost, mysqlPort)
   }
 
   val container: DockerComposeContainer = DockerComposeContainer(
-    new File("docker-compose-e2e.yaml"),
+    new File(
+      getClass.getClassLoader.getResource("docker-compose-e2e.yaml").getFile
+    ),
     exposedServices = Seq(mysqlService)
   )
+
+  override def beforeAll(): Unit =
+    container.start()
+
+  override def afterAll(): Unit =
+    container.stop()
+
+  "e2e" in
+    assert(true)

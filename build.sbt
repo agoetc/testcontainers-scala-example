@@ -19,7 +19,8 @@ lazy val root =
       )
     )
     .settings(
-      dockerBaseImage := "library/eclipse-temurin:17.0.1_12-jre"
+      dockerBaseImage := "library/eclipse-temurin:17.0.1_12-jre",
+      dockerUpdateLatest := true
     )
     .enablePlugins(DockerPlugin, JavaAppPackaging, AshScriptPlugin)
 
