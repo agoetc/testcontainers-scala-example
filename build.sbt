@@ -2,6 +2,8 @@ import Dependencies._
 
 val scala3Version = "3.1.0"
 
+Docker / packageName := "app"
+
 lazy val root =
   project
     .in(file("."))
@@ -16,6 +18,10 @@ lazy val root =
         TestContainers.testContainers % Test
       )
     )
+    .settings(
+      dockerBaseImage := "library/eclipse-temurin:17.0.1_12-jre"
+    )
+    .enablePlugins(DockerPlugin, JavaAppPackaging, AshScriptPlugin)
 
 lazy val migrate =
   project
