@@ -15,7 +15,7 @@ lazy val root =
         Scalikejdbc.scalikejdbc,
         Logback.logback,
         ScalaTest.scalaTest % Test,
-        TestContainers.testContainers % Test
+        ScalaTestContainers.scalaTestContainers % Test
       )
     )
     .settings(
