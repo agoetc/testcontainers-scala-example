@@ -8,7 +8,7 @@ lazy val root =
   project
     .in(file("."))
     .settings(
-      name := "test-containers-ci-example",
+      name := "testcontainers-scala-example",
       scalaVersion := scala3Version,
       libraryDependencies ++= Seq(
         MysqlConnector.mysqlConnector,
