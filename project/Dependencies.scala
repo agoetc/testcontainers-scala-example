@@ -27,9 +27,9 @@ object Dependencies {
   }
 
   object ScalaTestContainers {
-    private val version = "0.39.12"
+    private val version = "0.40.11"
     lazy val scalaTestContainers =
-      "com.dimafeng" %% "testcontainers-scala" % version
+      "com.dimafeng" %% "testcontainers-scala-scalatest" % version
 
   }
 

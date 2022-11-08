@@ -17,7 +17,7 @@ class Test extends AnyFreeSpec with BeforeAndAfterAll:
 
   val container: DockerComposeContainer = DockerComposeContainer(
     new File(
-      getClass.getClassLoader.getResource("docker-compose-e2e.yaml").getFile
+      getClass.getClassLoader.getResource("docker-compose-it.yaml").getFile
     ),
     exposedServices = Seq(mysqlService)
   )
@@ -28,5 +28,5 @@ class Test extends AnyFreeSpec with BeforeAndAfterAll:
   override def afterAll(): Unit =
     container.stop()
 
-  "e2e" in
+  "it" in
     assert(true)

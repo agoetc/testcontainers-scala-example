@@ -9,4 +9,15 @@ project/plugins/project/
 .lib/
 .bsp/
 
+
+# editer
+
+## idea
 .idea/
+
+## metals
+.vscode/
+.metals/
+.bloop/
+project/metals.sbt
+project/project/
